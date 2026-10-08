@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Try H3 Pre School’s interactive admissions assistant demo. Prepare a sample enquiry, explore questions, and see the team’s summary.">
+  <meta name="theme-color" content="#174f40"><title>H3 Pre School · Admissions assistant demo</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<svg class="icon-library" aria-hidden="true"><defs>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m5 12 14 0m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 2.6 8.4M3 4v6h6"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+</defs></svg>
+<header class="masthead">
+  <a class="brand" href="./" aria-label="H3 Pre School admissions demo home"><span class="brand-mark">H3<span></span></span><span>H3 Pre School<small>Admissions assistant</small></span></a>
+  <div class="header-actions"><span class="demo-pill"><span></span> Interactive demo</span><button class="text-button" id="connect">Connect WhatsApp <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+</header>
+<main class="workspace">
+  <section class="intro" aria-labelledby="page-title">
+    <p class="eyebrow">A little hello. A big beginning.</p>
+    <h1 id="page-title">Every school journey starts with a conversation.</h1>
+    <p class="intro-copy">Give parents a warm welcome, ask the right questions, and help your admissions team take the next step.</p>
+    <div class="walkthrough"><span class="step-number">01</span><div><strong>Try it as a parent</strong><p>Answer a few simple questions using sample details.</p></div></div>
+    <div class="walkthrough"><span class="step-number">02</span><div><strong>Ask along the way</strong><p>Questions about fees or documents won’t interrupt your enquiry.</p></div></div>
+    <div class="walkthrough"><span class="step-number">03</span><div><strong>See the team’s view</strong><p>A clear summary builds as the conversation unfolds.</p></div></div>
+    <button class="sample-button" id="sample">Fill a sample enquiry <svg class="icon"><use href="#i-arrow"/></svg></button>
+    <p class="demo-note">Browser preview · No WhatsApp messages sent</p>
+  </section>
+  <section class="chat-card" aria-label="Admissions assistant conversation">
+    <div class="chat-header"><span class="chat-avatar">H3</span><div><h2>H3 Pre School</h2><p><span class="status-dot"></span> Admissions assistant · demo</p></div><button id="reset" class="icon-button" aria-label="Reset conversation" title="Reset conversation"><svg class="icon"><use href="#i-reset"/></svg></button></div>
+    <div class="chat-scroll" id="chat-scroll"><div class="day-label">Your preschool enquiry</div><div id="messages" role="log" aria-live="polite" aria-relevant="additions text"></div><div id="choices" class="choices" aria-label="Suggested replies"></div></div>
+    <div class="composer-wrap"><form id="composer" class="composer"><label class="sr-only" for="message-input">Your reply</label><input id="message-input" name="reply" placeholder="Type your reply…" maxlength="300" autocomplete="off"><button id="send" type="submit" aria-label="Send reply"><svg class="icon"><use href="#i-send"/></svg></button></form><p><svg class="small-icon"><use href="#i-lock"/></svg> Sample details only. Reloading clears this demo.</p></div>
+  </section>
+  <aside class="team-panel" aria-labelledby="summary-heading">
+    <div class="panel-label"><span class="label-icon"><svg class="icon"><use href="#i-chat"/></svg></span><span>The team’s view</span></div>
+    <h2 id="summary-heading">A thoughtful first step.</h2><p class="panel-copy">The essentials, ready for a personal follow-up.</p>
+    <div class="progress-caption"><span id="progress-label">Waiting to begin</span><span id="progress-percent">0%</span></div><div class="progress-track" role="progressbar" aria-label="Enquiry progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-fill"></div></div>
+    <dl id="lead-summary"></dl>
+    <div id="summary-status" class="summary-status">A sample enquiry will appear here as you chat.</div>
+    <button class="copy-button" id="copy" disabled><svg class="icon"><use href="#i-copy"/></svg> Copy enquiry summary</button>
+    <div class="school-note"><strong>School details stay accurate.</strong><p>Fees, admission criteria, documents and timings are awaiting H3’s confirmation.</p></div>
+  </aside>
+</main>
+<footer class="page-footer"><span>Made for H3 Pre School</span><span>Guided enquiry → personal follow-up</span></footer>
+<dialog id="connection-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="eyebrow">From preview to WhatsApp</span><button id="close-dialog" class="icon-button" aria-label="Close setup information"><svg class="icon"><use href="#i-close"/></svg></button></div><h2 id="dialog-title">Try it in a real conversation.</h2><p>This preview is ready to present. A WhatsApp test needs a connected messaging account and a public, secure server.</p><ol><li><strong>Activate a Twilio WhatsApp test environment.</strong> Use “Try out WhatsApp” in the new Console, or the Sandbox in the legacy Console.</li><li><strong>Connect the included server.</strong> Add the private account token and the exact public HTTPS webhook address. The setup guide explains each step.</li><li><strong>Join from your phone.</strong> Follow Twilio’s join instructions, then send “Hi” and try the same admission flow.</li></ol><div class="dialog-note">The Sandbox uses Twilio’s shared number and logo. H3’s own identity requires a registered WhatsApp sender. This demo does not send enquiries to school staff.</div><button class="dialog-done" id="dialog-done">Back to demo <svg class="icon"><use href="#i-arrow"/></svg></button></dialog>
+<div id="toast" class="toast" role="status"></div>
+</body>
+</html>
